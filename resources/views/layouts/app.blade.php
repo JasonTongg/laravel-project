@@ -27,11 +27,13 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Products</a>
                     </li>
-                    <li class="nav-item mx-1">
-                        <a class="nav-link" aria-current="page" href="{{ route('view_cart') }}">
-                            <img src="{{ asset('asset/shopping-cart (1) 1.png') }}" alt="" class="navbar-icon">
-                        </a>
-                    </li>
+                    @if (Auth::check() && Auth::user()->name != "Admin")
+                        <li class="nav-item mx-1">
+                            <a class="nav-link" aria-current="page" href="{{ route('view_cart') }}">
+                                <img src="{{ asset('asset/shopping-cart (1) 1.png') }}" alt="" class="navbar-icon">
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item mx-1">
                         <a class="nav-link" aria-current="page" href="{{ route('view_profile') }}">
                             <img src="{{ asset('asset/user (2) 1.png') }}" alt="" class="navbar-icon">
