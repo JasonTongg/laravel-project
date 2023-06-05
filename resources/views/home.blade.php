@@ -31,7 +31,7 @@
                             <p class="card-text text-muted">{{ $mouse->description }}</p>
                             <h6 class="card-subtitle">Rp
                                 {{ number_format($mouse->mouse_variants->first()->price, 2, ',', '.') }}</h6>
-                            @if (Auth::user()->name != "Admin")
+                            @if (Auth::check() && Auth::user()->name != "Admin")
                             <div class="d-flex mt-3">
                                 @foreach ($mouse->mouse_variants as $variant)
                                     <a href="{{ route('view_mouse_detail', $variant->id) }}"
